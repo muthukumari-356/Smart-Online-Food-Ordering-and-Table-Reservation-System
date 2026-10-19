@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="success-container">
+    <div class="success-box">
+        <h2>Select Payment Method</h2>
+
+```
+    <form method="POST" action="/payment">
+
+        <label style="display:block; text-align:left; margin:15px 0;">
+            <input type="radio" name="payment_method" value="Cash on Delivery" required>
+            Cash on Delivery
+        </label>
+
+        <label style="display:block; text-align:left; margin:15px 0;">
+            <input type="radio" name="payment_method" value="UPI Payment">
+            UPI Payment
+        </label>
+
+        <label style="display:block; text-align:left; margin:15px 0;">
+            <input type="radio" name="payment_method" value="Credit/Debit Card">
+            Credit / Debit Card
+        </label>
+
+        <button type="submit" class="btn" style="margin-top:20px;">
+            Confirm Payment
+        </button>
+
+    </form>
+
+</div>
+```
+
+</div>
+
+</body>
+</html>

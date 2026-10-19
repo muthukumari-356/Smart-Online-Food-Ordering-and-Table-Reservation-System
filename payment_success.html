@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="success-container">
+    <div class="success-box">
+        <h2>Payment Successful</h2>
+
+```
+    <p><strong>Payment Method:</strong> {{ payment_method }}</p>
+    <p><strong>Order Total:</strong> ₹{{ total }}</p>
+    <p><strong>GST (5%):</strong> ₹{{ gst }}</p>
+    <h3>Grand Total: ₹{{ grand_total }}</h3>
+
+    <a href="/invoice" class="btn">Download Invoice</a>
+    <a href="/track_order" class="btn">Track Order</a>
+</div>
+```
+
+</div>
+
+</body>
+</html>

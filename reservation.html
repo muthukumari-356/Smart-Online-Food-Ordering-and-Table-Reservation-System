@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Reservation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+    .table-layout {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .table-box {
+        padding: 18px;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .available {
+        background: #28a745;
+    }
+
+    .booked {
+        background: #dc3545;
+    }
+
+    .login-box {
+        max-width: 750px;
+    }
+
+    select {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .legend {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .legend span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: bold;
+    }
+
+    .green,
+    .red {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+    }
+
+    .green {
+        background: #28a745;
+    }
+
+    .red {
+        background: #dc3545;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-box">
+
+    <h2>Book a Table</h2>
+
+    {% if alert_message %}
+<div style="background:#ffebee; color:#c62828; border:1px solid #ef5350; padding:12px; border-radius:8px; margin-bottom:15px; text-align:center; font-weight:bold;">
+    ⚠ {{ alert_message }}
+</div>
+{% endif %}
+
+    <h3 style="text-align:center;">Table Availability</h3>
+
+    <div class="legend">
+        <span><div class="green"></div>Available</span>
+        <span><div class="red"></div>Booked</span>
+    </div>
+
+    <div class="table-layout">
+        {% for i in range(1, 11) %}
+            {% if i|string in booked_tables %}
+                <div class="table-box booked">
+                    Table {{ i }}<br>
+                    Booked
+                </div>
+            {% else %}
+                <div class="table-box available">
+                    Table {{ i }}<br>
+                    Available
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <form method="POST" action="/reservation">
+
+        <input type="text" name="customer_name" placeholder="Your Name" required>
+
+        <input type="text" name="phone" placeholder="Phone Number" required>
+
+        <input type="date" name="reservation_date" required>
+
+        <input type="time" name="reservation_time" required>
+
+        <select name="table_number" required>
+            <option value="">Select Table</option>
+
+            {% for i in range(1, 11) %}
+                {% if i|string not in booked_tables %}
+                    <option value="{{ i }}">Table {{ i }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+
+        <input type="number" name="guests" placeholder="Number of Guests" required>
+
+        <button type="submit">Reserve Table</button>
+
+    </form>
+
+</div>
+```
+
+</div>
+
+</body>
+</html>

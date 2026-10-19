@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Address</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111 url("{{ url_for('static', filename='images/restaurant-bg.png') }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 400px;
+            margin: 60px auto;
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: #ff9800;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 12px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 20px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e68900;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Delivery Address</h1>
+
+    <form action="/place_order" method="POST">
+
+        <label>Customer Name</label>
+        <input type="text" name="customer_name" required>
+
+        <label>Phone Number</label>
+        <input type="text" name="phone" required>
+
+        <label>Address</label>
+        <textarea name="address" required></textarea>
+
+        <label>City</label>
+        <input type="text" name="city" required>
+
+        <label>Pincode</label>
+        <input type="text" name="pincode" required>
+
+        <button type="submit">Continue to Payment</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

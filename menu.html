@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+```
+<nav class="navbar">
+    <div class="logo">Food Order</div>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/menu">Menu</a></li>
+        <li><a href="/reservation">Reservation</a></li>
+        <li><a href="/contact">Contact</a></li>
+        
+    </ul>
+</nav>
+
+<section class="menu-section">
+    <h1>Our Special Menu</h1>
+
+    <h2>Breakfast</h2>
+    <div class="menu-container">
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/idli.png') }}" alt="Idli">
+            <h3>Idli</h3>
+            <p>Soft steamed idlis served with chutney and sambar.</p>
+            <h4>₹40</h4>
+            <a href="/add_to_cart/Idli/40">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/dosa.png') }}" alt="Dosa">
+            <h3>Dosa</h3>
+            <p>Crispy dosa served with chutney and sambar.</p>
+            <h4>₹60</h4>
+            <a href="/add_to_cart/Dosa/60">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/pongal.png') }}" alt="Pongal">
+            <h3>Pongal</h3>
+            <p>Hot ghee pongal with coconut chutney.</p>
+            <h4>₹70</h4>
+            <a href="/add_to_cart/Pongal/70">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/vada.png') }}" alt="Vada">
+            <h3>Medu Vada</h3>
+            <p>Crispy medu vada with sambar and chutney.</p>
+            <h4>₹30</h4>
+            <a href="/add_to_cart/Vada/30">
+    <button>Add to Cart</button>
+</a>
+        </div>
+    </div>
+
+    <h2>Lunch</h2>
+    <div class="menu-container">
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/veg-meals.png') }}" alt="Veg Meals">
+            <h3>Veg Meals</h3>
+            <p>Traditional South Indian full meals.</p>
+            <h4>₹120</h4>
+            <a href="/add_to_cart/Meals/120">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/chicken-biryani.png') }}" alt="Chicken Biryani">
+            <h3>Chicken Biryani</h3>
+            <p>Authentic dum biryani with raita.</p>
+            <h4>₹180</h4>
+            <a href="/add_to_cart/Chicken Biryani/180">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/mutton-biryani.png') }}" alt="Mutton Biryani">
+            <h3>Mutton Biryani</h3>
+            <p>Rich and flavorful mutton biryani.</p>
+            <h4>₹240</h4>
+            <a href="/add_to_cart/Mutton Biryani/240">
+    <button>Add to Cart</button>
+</a>
+            
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/fried-rice.png') }}" alt="Fried Rice">
+            <h3>Fried Rice</h3>
+            <p>Vegetable fried rice with special sauce.</p>
+            <h4>₹150</h4>
+            <a href="/add_to_cart/Fried Rice/150">
+    <button>Add to Cart</button>
+</a>
+        </div>
+    </div>
+
+    <h2>Dinner</h2>
+    <div class="menu-container">
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/pizza.png') }}" alt="Pizza">
+            <h3>Pizza</h3>
+            <p>Cheesy pizza with fresh toppings.</p>
+            <h4>₹250</h4>
+            <a href="/add_to_cart/Pizza/250">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/burger.png') }}" alt="Burger">
+            <h3>Chicken Burger</h3>
+            <p>Juicy grilled chicken burger.</p>
+            <h4>₹140</h4>
+            <a href="/add_to_cart/Burger/140">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/parotta.png') }}" alt="Parotta">
+            <h3>Parotta</h3>
+            <p>Layered parotta with chicken gravy.</p>
+            <h4>₹90</h4>
+            <a href="/add_to_cart/Parrotta/90">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/noodles.png') }}" alt="Noodles">
+            <h3>Hakka Noodles</h3>
+            <p>Spicy noodles with vegetables.</p>
+            <h4>₹160</h4>
+            <a href="/add_to_cart/Nooodles/160">
+    <button>Add to Cart</button>
+</a>
+        </div>
+    </div>
+
+    <h2>Beverages</h2>
+    <div class="menu-container">
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/coffee.png') }}" alt="Coffee">
+            <h3>Filter Coffee</h3>
+            <p>Authentic South Indian filter coffee.</p>
+            <h4>₹30</h4>
+            <a href="/add_to_cart/Coffee/30">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/tea.png') }}" alt="Tea">
+            <h3>Masala Tea</h3>
+            <p>Hot masala tea with spices.</p>
+            <h4>₹20</h4>
+            <a href="/add_to_cart/Tea/20">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/juice.png') }}" alt="Juice">
+            <h3>Fresh Orange Juice</h3>
+            <p>Freshly squeezed orange juice.</p>
+            <h4>₹70</h4>
+            <a href="/add_to_cart/Juice/70">
+    <button>Add to Cart</button>
+</a>
+        </div>
+    </div>
+
+    <h2>Desserts</h2>
+    <div class="menu-container">
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/icecream.png') }}" alt="Ice Cream">
+            <h3>Vanilla Ice Cream</h3>
+            <p>Creamy vanilla ice cream scoop.</p>
+            <h4>₹60</h4>
+            <a href="/add_to_cart/Ice Cream/60">
+    <button>Add to Cart</button>
+</a>
+        </div>
+
+        <div class="menu-card">
+            <img src="{{ url_for('static', filename='images/gulabjamun.png') }}" alt="Gulab Jamun">
+            <h3>Gulab Jamun</h3>
+            <p>Soft and delicious gulab jamun.</p>
+            <h4>₹50</h4>
+            <a href="/add_to_cart/Gulan Jamun/50">
+    <button>Add to Cart</button>
+</a>
+        </div>
+    </div>
+
+</section>
+```
+
+</body>
+</html>

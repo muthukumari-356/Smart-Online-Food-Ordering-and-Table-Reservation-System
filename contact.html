@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Food Order</div>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/menu">Menu</a></li>
+        <li><a href="/reservation">Reservation</a></li>
+        <li><a href="/track_order">Track Order</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+        <li><a href="/admin" class="admin-btn">Admin</a></li>
+    </ul>
+</nav>
+
+<div class="cart-background">
+    <div class="menu-section" style="max-width:1000px; margin:auto;">
+
+```
+    <h1 style="color:white; text-align:center;">Contact Us</h1>
+
+    <div style="display:flex; flex-wrap:wrap; gap:30px; background:rgba(255,255,255,0.95); padding:30px; border-radius:15px;">
+
+        <div style="flex:1; min-width:280px;">
+            <h2 style="color:#ff9800;">Get in Touch</h2>
+
+            <p><strong>Restaurant Name:</strong> Food Order Restaurant</p>
+
+            <p><strong>Address:</strong><br>
+            45 Anna Salai,<br>
+            Chennai, Tamil Nadu - 600002</p>
+
+            <p><strong>Phone:</strong> +91 9487794150</p>
+
+            <p><strong>Email:</strong> foodorder@gmail.com</p>
+
+            <h3 style="color:#ff9800;">Opening Hours</h3>
+
+            <p>Monday - Friday: 9:00 AM - 10:00 PM</p>
+            <p>Saturday - Sunday: 8:00 AM - 11:00 PM</p>
+        </div>
+
+        <div style="flex:1; min-width:280px;">
+            <h2 style="color:#ff9800;">Send a Message</h2>
+
+            <form action="/contact" method="POST">
+
+                <input type="text" name="name" placeholder="Your Name" required
+                    style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:8px;">
+
+                <input type="email" name="email" placeholder="Your Email" required
+                    style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:8px;">
+
+                <input type="text" name="subject" placeholder="Subject" required
+                    style="width:100%; padding:12px; margin-bottom:15px; border:1px solid #ccc; border-radius:8px;">
+
+                <textarea name="message" rows="5" placeholder="Your Message" required
+                    style="width:100%; padding:12px; margin-bottom:20px; border:1px solid #ccc; border-radius:8px;"></textarea>
+
+                <button type="submit" class="btn" style="width:100%;">
+                    Send Message
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+</body>
+</html>

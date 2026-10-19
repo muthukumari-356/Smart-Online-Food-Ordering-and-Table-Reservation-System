@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="cart-background">
+    <div class="menu-section">
+
+```
+    <div style="background:white; padding:30px; border-radius:15px; max-width:800px; margin:auto;">
+
+        <h1 style="text-align:center; color:#ff9800;">Food Order Restaurant</h1>
+        <h3 style="text-align:center;">Invoice / Bill Receipt</h3>
+
+        <hr>
+
+        <p><strong>Invoice No:</strong> INV2026001</p>
+        <p><strong>Date:</strong> {{ current_date }}</p>
+        <p><strong>Payment Method:</strong> {{ payment_method }}</p>
+
+        <hr>
+
+        <table style="width:100%; border-collapse:collapse;" border="1">
+            <tr style="background:#ff9800; color:white;">
+                <th>Food Item</th>
+                <th>Price</th>
+            </tr>
+
+            {% for order in orders %}
+            <tr>
+                <td>{{ order[1] }}</td>
+                <td>₹{{ order[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <div style="text-align:right; margin-top:20px;">
+            <h3>Total Amount: ₹{{ total }}</h3>
+            <h3>GST (5%): ₹{{ gst }}</h3>
+            <h2 style="color:#28a745;">Grand Total: ₹{{ grand_total }}</h2>
+        </div>
+
+        <hr>
+
+        <p style="text-align:center;">
+            Thank you for ordering with us!
+        </p>
+
+        <div style="text-align:center; margin-top:30px;">
+            <button onclick="window.print()" class="btn">
+                Print Invoice
+            </button>
+
+            <a href="/" class="btn">Home</a>
+        </div>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+</body>
+</html>

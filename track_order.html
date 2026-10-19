@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="cart-background">
+    <div class="menu-section">
+
+```
+    <h1 style="color:white; text-align:center;">Track Your Order</h1>
+
+    <div style="background:rgba(255,255,255,0.95); padding:20px; border-radius:15px; margin-bottom:30px;">
+        <h2 style="text-align:center; color:#ff9800;">Order Status Timeline</h2>
+
+        <div style="display:flex; justify-content:space-between; align-items:center; margin:30px 10px;">
+
+            <div style="text-align:center;">
+                <div style="width:50px; height:50px; background:#ff9800; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:auto;">1</div>
+                <p style="color:#333; font-weight:bold;">Preparing</p>
+            </div>
+
+            <div style="flex:1; height:4px; background:#ff9800;"></div>
+
+            <div style="text-align:center;">
+                <div style="width:50px; height:50px; background:#ffc107; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:auto;">2</div>
+                <p style="color:#333; font-weight:bold;">Cooking</p>
+            </div>
+
+            <div style="flex:1; height:4px; background:#2196F3;"></div>
+
+            <div style="text-align:center;">
+                <div style="width:50px; height:50px; background:#2196F3; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:auto;">3</div>
+                <p style="color:#333; font-weight:bold;">Out for Delivery</p>
+            </div>
+
+            <div style="flex:1; height:4px; background:#28a745;"></div>
+
+            <div style="text-align:center;">
+                <div style="width:50px; height:50px; background:#28a745; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:auto;">4</div>
+                <p style="color:#333; font-weight:bold;">Delivered</p>
+            </div>
+
+        </div>
+    </div>
+
+    <table class="admin-table">
+        <tr>
+            <th>Order ID</th>
+            <th>Food Item</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Order Time</th>
+        </tr>
+
+        {% for order in orders %}
+        <tr>
+            <td>{{ order[0] }}</td>
+            <td>{{ order[1] }}</td>
+            <td>₹{{ order[2] }}</td>
+            <td>
+                {% if order[3] == 'Preparing' %}
+                    <span style="color:#ff9800; font-weight:bold;">Preparing</span>
+                {% elif order[3] == 'Out for Delivery' %}
+                    <span style="color:#2196F3; font-weight:bold;">Out for Delivery</span>
+                {% elif order[3] == 'Delivered' %}
+                    <span style="color:#28a745; font-weight:bold;">Delivered</span>
+                {% else %}
+                    {{ order[3] }}
+                {% endif %}
+            </td>
+            <td>{{ order[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="text-align:center; margin-top:30px;">
+        <a href="/menu" class="btn">Back to Menu</a>
+        <a href="/" class="btn">Home</a>
+    </div>
+
+</div>
+```
+
+</div>
+
+</body>
+</html>

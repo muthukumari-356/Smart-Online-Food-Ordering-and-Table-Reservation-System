@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+
+```
+<!-- External CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #111 url("{{ url_for('static', filename='images/restaurant-bg.png') }}") no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .cart-background {
+        background: rgba(0, 0, 0, 0.65);
+        min-height: 100vh;
+        padding: 40px;
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+        font-size: 48px;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+
+    table {
+        width: 90%;
+        margin: auto;
+        border-collapse: collapse;
+        background: rgba(255,255,255,0.95);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    th {
+        background: #ff9800;
+        color: white;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    td {
+        padding: 12px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    tr:hover {
+        background: #f8f8f8;
+    }
+
+    .delete-btn {
+        background: #dc3545;
+        color: white;
+        padding: 8px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .delete-btn:hover {
+        background: #b02a37;
+    }
+
+    .total-box {
+        width: 90%;
+        margin: 25px auto;
+        text-align: right;
+        font-size: 32px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    .buttons {
+        text-align: center;
+        margin-top: 35px;
+    }
+
+    .btn {
+        display: inline-block;
+        margin: 10px;
+        padding: 14px 28px;
+        background: #ff9800;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #e68900;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        table {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .total-box {
+            width: 100%;
+            font-size: 24px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+
+<div class="cart-background">
+
+```
+<h1>My Cart</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Food Name</th>
+            <th>Price</th>
+            <th>Order Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order[0] }}</td>
+            <td>{{ order[1] }}</td>
+            <td>₹{{ order[2] }}</td>
+            <td>{{ order[3] }}</td>
+            <td>
+                <a href="{{ url_for('delete_cart_item', item_id=order[0]) }}" class="delete-btn">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="total-box">
+    Total: ₹{{ total }}
+</div>
+
+<div class="buttons">
+    <a href="/menu" class="btn">Continue Ordering</a>
+
+    <a href="/delivery_address" class="btn">Place Order</a>
+
+    <a href="/clear_cart" class="btn">Clear Cart</a>
+</div>
+```
+
+</div>
+
+</body>
+</html>
